@@ -1,0 +1,53 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/inline.56ad6a5679be1474f0a2.bundle.js",
+        "/main.15bcc7cf7994edb3ec54.bundle.js",
+        "/polyfills.04eee28771701d47ae41.bundle.js",
+        "/styles.de027612e54e04604b30.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/bootstrap.css",
+        "/assets/bootstrap.js",
+        "/assets/jquery-2.2.0.min.js",
+        "/assets/fonts/glyphicons-halflings-regular.eot",
+        "/assets/fonts/glyphicons-halflings-regular.svg",
+        "/assets/fonts/glyphicons-halflings-regular.ttf",
+        "/assets/fonts/glyphicons-halflings-regular.woff",
+        "/assets/fonts/glyphicons-halflings-regular.woff2"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/inline.56ad6a5679be1474f0a2.bundle.js": "3046d63147048e5c8d0714dfc520aac109277f86",
+    "/assets/bootstrap.css": "8b4afe4985fbef5675b83574cc06346bd7b0f332",
+    "/main.15bcc7cf7994edb3ec54.bundle.js": "9373578044f2aae4575e5cecf4c049a14327627f",
+    "/assets/bootstrap.js": "8cf4186ce86777b4b408ce308ca9f66dd421f509",
+    "/polyfills.04eee28771701d47ae41.bundle.js": "b4caecb23e9216bded006c65ef28ff59ad7313f6",
+    "/assets/jquery-2.2.0.min.js": "5d7e5bbfa540f0e53bd599e4305e1a4e815b5dd1",
+    "/styles.de027612e54e04604b30.bundle.css": "a07bc6402963d667a39a7c284e8027f1bb512c47",
+    "/assets/fonts/glyphicons-halflings-regular.eot": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3",
+    "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/assets/fonts/glyphicons-halflings-regular.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
+    "/index.html": "23b7a575810830b7716777b08a829b18a687d220",
+    "/assets/fonts/glyphicons-halflings-regular.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
+    "/assets/fonts/glyphicons-halflings-regular.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
+    "/assets/fonts/glyphicons-halflings-regular.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07"
+  }
+}

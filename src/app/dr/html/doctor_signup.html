@@ -1,0 +1,282 @@
+<div id="main-container">
+
+<h2 class="text-center">Signup Form </h2>
+ 
+<mat-vertical-stepper>
+
+
+<mat-step [stepControl]="personalForm">
+	
+	<ng-template matStepLabel> Personal Information</ng-template>
+	
+	<form [formGroup]="personalForm">
+	
+		<div class="form-group">
+			<mat-form-field>
+				
+				<input  matInput name="name" type="text" formControlName="name" placeholder="Name">
+				<mat-error *ngIf="name.hasError('required')">
+					Name is <strong>required</strong>
+				</mat-error>
+			
+			</mat-form-field>
+		
+		</div>
+		
+		<div class="form-group">
+		<mat-form-field>
+			<textarea  cols="5" rows="6" matInput name="about" formControlName="about" placeholder="Write About Yourself"></textarea>
+			<mat-hint align='start'>Write Detail About You Work</mat-hint>
+			<mat-hint align="end">{{about.value.length}}/256</mat-hint>
+			
+			<mat-error *ngIf="about.hasError('required')">
+			
+				About is  <strong>requied</strong>
+			</mat-error>
+			<mat-error *ngIf="about.hasError('maxlength')">
+				Maximum no of character is 256
+			</mat-error>
+		</mat-form-field>
+		</div>
+		
+		<div class="form-group">
+			<button mat-raised-button color="primary" type="button" matStepperNext >Next</button>
+		</div>
+	
+	</form>
+
+
+
+</mat-step>
+
+
+	<mat-step [stepControl]="qualificationForm">
+	
+  <ng-template matStepLabel>Add Your Qalification</ng-template>	
+  
+
+	<form [formGroup]="qualificationForm">
+
+		   <div class="form-group">
+		   
+		  <mat-form-field>
+		   		
+		   					
+		   	<mat-select placeholder="Qualification" formControlName="qualifications" multiple="true">
+	                           
+	              <mat-option *ngFor="let degree of qualificationOptions" [value]="degree">
+	              {{degree.degreeName}}
+	              </mat-option>
+            </mat-select>
+            
+            <mat-error *ngIf="qualifications.hasError('required')">
+					Qualifications are<strong>required</strong>
+				</mat-error>
+		   		
+		</mat-form-field>
+		   			
+					
+		   
+		   </div>
+
+			<div class="form-group">
+			
+		
+				
+				
+				
+			
+				<mat-form-field >
+				
+					
+					<mat-select placeholder="Specialities" formControlName="specialities" multiple="true">
+					
+							
+							<mat-option *ngFor="let speciality of specialities" [value]="speciality">
+							
+									{{speciality.specialityName}}
+							</mat-option>
+					
+					
+					</mat-select>
+					<mat-error *ngIf="specialitiesControl.hasError('required')">
+					Specialities are <strong>required</strong>
+				</mat-error>
+				
+				</mat-form-field>
+			
+			</div>
+			
+			<div class="form-group">
+			
+			<button mat-raised-button color="accent" matStepperPrevious type="button">Previous</button>
+			
+			 <button mat-raised-button color="primary"  matStepperNext type="button">Next</button>
+			</div>
+	        
+	       
+				
+		 
+	   </form>	
+				
+
+			
+		
+		
+		
+		</mat-step >
+		
+		
+		<mat-step [stepControl]="contactForm">
+		
+			<ng-template matStepLabel>Add Contact Information</ng-template>
+		
+			<form [formGroup]="contactForm" >
+			
+			<div class="form-group">
+				
+					<mat-form-field>
+					<input matInput formControlName="address" type="text" name="address" placeholder="Address" >
+				
+					
+				    <mat-error *ngIf="address.hasError('required')">
+					Address is <strong>required</strong>
+			     	</mat-error>
+				    </mat-form-field>
+				    
+			
+			</div>
+			
+			<div class="form-group">
+			
+				<mat-form-field>
+					<input matInput formControlName="address2" type="text" name="address2" placeholder="Address Line Two">
+					
+				    
+				</mat-form-field>
+			
+			</div>
+			
+			<div class="form-group">
+			
+				 <mat-form-field>
+		   		
+		   					
+				   	<mat-select placeholder="State" formControlName="state" (change)="stateSelected()">
+			                           
+			              <mat-option *ngFor="let state of states" [value]="state.stateId">
+			                                                {{ state.stateName }}
+			              </mat-option>
+		            </mat-select>
+		   		
+		   			
+				    <mat-error *ngIf="state.hasError('required')">
+					State is <strong>required</strong>
+				</mat-error>
+		      </mat-form-field>
+			
+			</div>
+			
+			<div class="form-group">
+			
+				 <mat-form-field>
+		   		
+		   					
+				   	<mat-select placeholder="City" formControlName="city">
+			                           
+			              <mat-option *ngFor="let city of cities" [value]="city.cityName">
+			                                                {{ city.cityName}}
+			              </mat-option>
+		            </mat-select>
+		            
+				    <mat-error *ngIf="city.hasError('required')">
+					City is <strong>required</strong>
+				</mat-error>
+		   		
+		      </mat-form-field>
+				
+			
+			</div>
+			
+			
+			<div class="form-group">
+			
+				<mat-form-field>
+					<span matPrefix>+91 &nbsp;</span>
+					<input matInput formControlName="phoneno" type="text" name="phoneno" placeholder="Phone No">
+					
+				    <mat-error *ngIf="phoneno.hasError('required')">
+					Phone No  is <strong>required</strong>
+				    </mat-error>
+				    
+				    <mat-error *ngIf="phoneno.hasError('minlength')">
+				    	Minimum length should be 10 digit
+				    </mat-error>
+				</mat-form-field>
+			
+			
+			</div>
+				
+			
+			<div class="form-group">
+			
+					<button matStepperPrevious mat-raised-button color="accent" type="button">Previous</button>
+				    <button matStepperNext mat-raised-button color="primary"  type="button">Next</button>
+			
+			</div>
+				
+			
+		
+		
+		</form>
+		</mat-step>
+
+		
+		<mat-step>
+		
+			<ng-template matStepLabel >Review And Save </ng-template>
+			
+			<h4>Qualifications</h4>
+			<p *ngFor="let qualification of qualificationForm.value.qualifications">{{qualification.degreeName}}</p>
+		
+			<h4>Specialities</h4>
+			<p *ngFor="let speciality of qualificationForm.value.specialities">{{speciality.specialityName}}</p>
+			
+			
+			<h4>Address:</h4>
+			<p> {{contactForm.value.address}}  , {{contactForm.value.city}}</p>
+			
+			<h4>Phone no:</h4>
+			<p>{{contactForm.value.phoneno}}</p>
+		    
+		    
+		    <h4 *ngIf="result.result" class="text-capitalize text-success">{{result.message}}</h4>
+			<h4 *ngIf="result.error" class="text-capitalize text-danger">{{result.message}}</h4>
+			
+			<div class="form-group">
+			
+				<button mat-raised-button matStepperPrevious color="accent" type="button">Previous</button>
+				<button mat-raised-button color="primary" type="button" (click)="submit()" >Save</button>
+			
+			</div>
+			
+		
+		</mat-step>
+		
+		
+		
+		
+
+
+</mat-vertical-stepper>
+
+
+
+
+
+
+
+		
+
+
+</div>

@@ -1,0 +1,130 @@
+
+
+<mat-toolbar color="primary">
+
+<button mat-icon-button (click)="sidenav.open()">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<button mat-button routerLink="/patient/home"><span>Edr</span>
+</button>
+
+
+<button mat-button (click)="logOut()">SignOut</button>
+
+
+</mat-toolbar>
+
+
+<mat-sidenav-container >
+
+  <mat-sidenav #sidenav>
+  
+  	<mat-nav-list>
+  	
+  		
+  	
+  		<h3 mat-subheader>Appointment</h3>
+  		
+  		<mat-list-item>
+  		 <a class="list-group-item" routerLink="appointment/with/added/doctor">Added Doctor</a>
+  		</mat-list-item>
+  		
+  		
+  		<mat-list-item>
+  		  <a class="list-group-item" routerLink="patient/make/appointment">Dr In Your City</a>
+  		
+  		</mat-list-item>
+  		
+  		
+  		
+  		<mat-divider></mat-divider>
+  		
+  		<h3 mat-subheader>Search</h3>
+  		
+  		<mat-list-item>
+  		
+  		<a class="list-group-item" routerLink="search/using/docid"> Using Doctor Id</a>
+  		</mat-list-item>
+  		
+  		<mat-list-item>
+  		
+  		<a class="list-group-item" routerLink="search/using/docname"> Using Doctor Name</a>
+  		</mat-list-item>
+  		
+  		<mat-list-item>
+  		
+  		
+  		<a class="list-group-item" routerLink="search/using/speciality">Using Speciality</a>
+  		
+  		</mat-list-item>
+  		
+  		<mat-divider></mat-divider>
+  		
+  		<mat-list-item>
+  		<a class="list-group-item" routerLink="show/doc/added" >Doctors Added</a>
+ 	 	
+  		</mat-list-item>
+  		
+  		<h3 class="mat-subheader">Profile</h3>
+  		<mat-divider></mat-divider>
+  		
+  		
+  		<mat-list-item>
+  		
+  		<a routerLink="patient/signup">Edit Profile</a>
+  		</mat-list-item>
+  		
+  	
+  	</mat-nav-list>
+  
+  
+
+  </mat-sidenav>
+
+
+  <!-- primary content -->
+  
+  
+  
+		
+	<router-outlet class="my-content"></router-outlet>
+
+</mat-sidenav-container>
+
+
+<!--  <div class="col-sm-4"> -->
+ 
+<!--  	<div class="list-group"> -->
+ 	
+<!--  	<a class="list-group-item" data-toggle="collapse" href="#appointmentMenu"> -->
+<!-- 		  	Appointment <i class="caret"></i></a> -->
+<!--  	  <div class="collapse" id="appointmentMenu"> -->
+ 	  
+<!--  	   <a class="list-group-item" routerLink="appointment/with/added/doctor">Added Doctor</a> -->
+<!--  	   <a class="list-group-item" routerLink="patient/make/appointment">Dr In Your City</a> -->
+ 	   
+ 	  
+<!--  	  </div> -->
+ 	  
+<!--  	<a class="list-group-item" data-toggle="collapse" href="#searchDocMenu"> -->
+<!--  	Search <i class="caret"></i></a> -->
+ 	
+<!--  	<div class="collapse"  id="searchDocMenu"> -->
+<!--  		<a class="list-group-item" routerLink="search/using/docid"> Using Doctor Id</a> -->
+<!--  		<a class="list-group-item" routerLink="search/using/docname"> Using Doctor Name</a> -->
+<!--  		<a class="list-group-item" routerLink="search/using/speciality">Using Speciality</a> -->
+ 		
+<!--  	</div> -->
+ 	
+ 	
+<!--  	 	<a class="list-group-item" routerLink="show/doc/added" >Doctors Added</a> -->
+ 	 	
+<!--  	</div> -->
+ 	
+ 	
+ 		 
+<!--  </div>   -->
+ 
+ 
+		

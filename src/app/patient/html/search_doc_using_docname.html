@@ -1,0 +1,92 @@
+
+
+
+<h2 class="text-center">Search Using Doctor Name</h2>
+
+
+<form [formGroup]="searchUsingDocNameForm" (ngSubmit)="submit()">
+
+<div class="form-group">
+
+	<mat-form-field>
+	
+		<input matInput formControlName="docName" placeholder="Enter the name " type="text">
+		
+	</mat-form-field>
+
+	<mat-form-field>
+	
+		<mat-select formControlName="state" placeholder="Select A State" (change)="stateSelected()">
+		
+			<mat-option *ngFor="let state of states" [value]="state.stateId">{{state.stateName}}</mat-option>
+		
+		</mat-select>
+	
+	</mat-form-field>
+	
+	<mat-form-field>
+	
+		<mat-select formControlName="city" placeholder="Select A City" >
+				
+			<mat-option *ngFor="let city of cities" [value]="city.cityName">{{city.cityName}}</mat-option>
+			
+		</mat-select>
+	
+	</mat-form-field>
+	
+	<div class="form-group">
+	
+		<button mat-raised-button color="primary" type="submit"> Submit</button>
+	</div>
+
+</div>
+
+
+</form>
+
+
+
+<div  class="grid-container" *ngIf="showDoc" >
+
+
+<div  *ngFor="let doctor of doctorList">
+
+<mat-card>
+
+	<mat-card-header>
+	
+		<mat-card-title>
+		
+			<h4>Name : {{doctor.name}}</h4>
+		</mat-card-title>
+	
+	</mat-card-header>
+	
+	
+	<mat-card-content>
+	
+	
+		<h4>About:</h4>
+	<p>{{doctor.about}}</p>
+	
+	
+	</mat-card-content>
+	
+	
+	<mat-card-actions>
+	
+	<button mat-button (click)="showDoctor(doctor.docId)">Check Profile</button>
+
+	<button mat-button color="accent" (click)="addDoctor(doctor)">Add Into List</button>
+	
+	<button mat-button (click)="makeAppointment(doctor.docId)">Make Appointment</button>
+	
+	</mat-card-actions>
+	
+</mat-card>
+
+</div>
+	
+
+
+</div>

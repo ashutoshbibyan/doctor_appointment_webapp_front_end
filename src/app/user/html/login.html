@@ -1,0 +1,56 @@
+<site-main-header></site-main-header>
+
+<h3 *ngIf="error">User Name or Password is Wrong Please try Again</h3>
+
+<div class="content">
+
+	<h2 class="text-center">Sign In </h2>
+
+		<form [formGroup]="loginForm" (ngSubmit)="submit()">
+			
+			
+				<mat-form-field class="fullwidth">
+				
+					<input matInput required ="text" placeholder="Mobile No" formControlName="mobileNo" name="email">
+					<mat-error *ngIf="mobileNo.hasError('required')">
+						Mobile No is <strong>required</strong>
+					</mat-error>
+				  <mat-error *ngIf="mobileNo.hasError('minlength')">
+					  Min length of mobile no is 10 digit
+				  </mat-error>
+					<mat-error *ngIf="mobileNo.hasError('maxlength')">
+						  Max length of mobile no is 10 digit
+					</mat-error>
+					
+				</mat-form-field>
+			
+			
+			
+	       
+	        
+	        <mat-form-field class="fullwidth">
+				
+					<input matInput required type="password" placeholder="Password" formControlName="password" name="password">
+					<mat-error *ngIf="password.hasError('required')">
+						Enter the Password
+					
+					</mat-error>
+				</mat-form-field>
+	        
+	       
+	        
+	        <br>
+	        <br>
+	        
+	        <button mat-raised-button color="primary" type="submit">Submit</button>
+				
+				
+				
+				
+</form>
+
+
+</div>
+
+
+			

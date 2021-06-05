@@ -1,0 +1,115 @@
+<mat-toolbar color="primary">
+
+	<button mat-button (click)="sidenav.open()" ><mat-icon>menu</mat-icon></button>
+
+	<button mat-button >Home</button>
+
+
+</mat-toolbar>
+
+
+<mat-sidenav-container >
+	<mat-sidenav mode="over"  #sidenav>
+
+		<mat-nav-list>
+
+			<h3>Add</h3>
+			<mat-divider></mat-divider>
+			<mat-list-item>
+				<a class="nav-link" routerLink="admin/disease/add">Add Disease</a>
+			</mat-list-item>
+
+		
+			<mat-list-item>
+						<a class="nav-link" routerLink="admin/state/add">Add State</a>
+
+			</mat-list-item>
+		
+		    <!--- <mat-list-item>
+
+				<a class="nav-link" routerLink="admin/city/add">Add City</a>
+
+			</mat-list-item> -->
+				
+			<mat-list-item>
+					<a class="nav-link" routerLink="admin/degree/add">Add Degree</a>
+
+			</mat-list-item>
+				
+
+			<mat-list-item>
+
+					<a class="nav-link" routerLink="admin/speciality/add">Add Speciality</a>
+
+			</mat-list-item>
+
+			<h3>Show</h3>
+
+			<mat-divider></mat-divider>
+
+			<mat-list-item>
+					<a class="nav-link" routerLink="admin/state/all">State List</a>
+			</mat-list-item>
+
+			<mat-list-item>
+					<a class="nav-list" routerLink="admin/degree/list">Degree List</a>
+			</mat-list-item>
+
+			<mat-list-item>
+					<a class="nav-list" routerLink="admin/disease/list">Disease List</a>
+			</mat-list-item>
+			
+			<mat-list-item>
+				<a class="nav-list" routerLink="admin/speciality/list">Specialities List</a>
+			</mat-list-item>
+				
+
+		</mat-nav-list>
+
+
+	</mat-sidenav>
+	
+	<router-outlet class="my-content"></router-outlet>
+
+	
+  </mat-sidenav-container>
+
+
+<!-- <div class="col-md-4">
+
+ <div class="list-group">
+ 		
+ 		<a class="list-group-item list-group-item-info" data-toggle="collapse" href="#add" >Add<i class="caret" ></i></a>
+ 		<div class="collapse" id="add">
+ 				
+ 				<li class="list-group-item" routerLink="admin/disease/add">Add Disease</li>
+				<li class="list-group-item" routerLink="admin/state/add">Add State</li>
+				<li class="list-group-item" routerLink="admin/city/add">Add City</li>
+				<li class="list-group-item" routerLink="admin/degree/add">Add Degree</li>
+				<li class="list-group-item" routerLink="admin/speciality/add">Add Speciality</li>
+ 		
+ 		</div>
+ 		<a class="list-group-item list-group-item-info" data-toggle="collapse" href="#show">Show<i class="caret"></i></a>
+ 		
+ 		<div class="collapse" id="show">
+ 				
+ 				<li class="list-group-item" routerLink="admin/state/all">State List</li>
+				<li class="list-group-item" routerLink="admin/degree/list">Degree List</li>
+				<li class="list-group-item" routerLink="admin/disease/list">Disease List</li>
+ 		
+ 		</div>
+ 	
+ </div>
+ 
+
+</div>
+
+
+<div class="col-md-8">
+
+	<router-outlet></router-outlet>
+
+
+</div>
+
+ -->

@@ -1,0 +1,61 @@
+
+
+
+<h2 class="text-center">Search Using DocId</h2>
+
+<form [formGroup]="searchDocForm" (ngSubmit)="Submit()">
+
+	<h4 *ngIf="result.error" class="text-capitalize text-danger">{{result.message}}</h4>
+	
+	<div class="form-group">
+		<mat-form-field>
+		<input matInput formControlName="docId" placeholder="Enter The Doctor Id" type="text">
+		</mat-form-field>
+		
+	</div>
+	
+	<button mat-raised-button color="primary" type="submit" >Search</button>
+
+</form>
+
+
+<div class="content-center" *ngIf="showDoc">
+
+
+
+		<mat-card>
+
+	<mat-card-header>
+	
+		<mat-card-title>
+		
+		<h4 class="panel-heading">Name : {{doctor.name}}</h4>
+		
+		</mat-card-title>
+	
+	</mat-card-header>
+	
+	<mat-card-content>
+	
+	<h4>About:</h4>
+	<p>{{doctor.about}}</p>
+	
+	
+	</mat-card-content>
+	
+	<mat-card-actions>
+	
+	<button mat-button (click)="showDoctor(doctor.docId)">Check Profile</button>
+	
+	
+	</mat-card-actions>
+
+
+</mat-card>
+
+
+
+
+	
+
+</div>

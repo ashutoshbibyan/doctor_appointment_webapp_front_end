@@ -1,0 +1,62 @@
+  <site-main-header></site-main-header> 
+  
+  
+  
+  <div class="content">
+  
+ <h2 class="text-center">User Signup Form </h2>
+  			
+  <form [formGroup]="userSignupForm" (ngSubmit)="submit()">
+  
+  
+  
+ 
+      <mat-form-field>
+  			
+  			<input matInput required type ="text" placeholder="Mobile No" name="username" formControlName="mobileNo" >
+  			<mat-error *ngIf="mobileNo.hasError('required')">
+  				Mobile No is <strong>required</strong>
+			  </mat-error>
+			<mat-error *ngIf="mobileNo.hasError('minlength')">
+				Min length of mobile no is 10 digit
+			</mat-error>
+  			<mat-error *ngIf="mobileNo.hasError('maxlength')">
+					Max length of mobile no is 10 digit
+  			</mat-error>
+  		</mat-form-field>
+
+  
+ 
+    	<mat-form-field>
+  			<input matInput required type="password" placeholder="Password" name="password" formControlName="password">
+  		
+  			<mat-error *ngIf="password.hasError('required')">
+  				Password is <strong>required</strong>
+  			</mat-error>
+  		</mat-form-field>
+  
+  
+  			 
+  			
+  			 <mat-radio-group formControlName="role" name="role" required=true>
+  				<mat-radio-button  value="ROLE_DOCTOR">I am Doctor</mat-radio-button>
+  				<mat-radio-button  value="ROLE_PATIENT">I am Patient</mat-radio-button>
+  				
+				  <mat-error *ngIf="role.hasError('required')">Select A Role</mat-error>
+			  </mat-radio-group>
+			  
+			  
+  			
+  		<br>
+  		<br>  
+  		<button mat-raised-button color="primary" type="submit">Submit</button>
+  
+  </form>
+  
+  
+  
+  </div>
+  
+  
+  
+  

@@ -1,0 +1,128 @@
+<div class="content-center">
+
+<h2> First Complete Your SignUp</h2>
+		
+<mat-vertical-stepper >
+
+
+  <mat-step [stepControl]="patientSignupForm">
+    
+    <ng-template matStepLabel> Personal Information:</ng-template>
+    
+    <form [formGroup]="patientSignupForm" (ngSubmit)="submit()">
+	
+	<div class="form-group">
+	
+		<mat-form-field>
+			
+			<input matInput type="text" name="name" placeholder="Name" formControlName="name"> 
+			<mat-error *ngIf="name.hasError('required')">Name is <strong>required</strong></mat-error>
+		
+		</mat-form-field>
+	
+	</div>
+	
+<!-- 	<div class="form-group"> -->
+<!-- 		<mat-form-field> -->
+<!-- 			<span matPrefix>+91 &nbsp;</span> -->
+<!-- 			<input matInput type="text" name="phoneno" placeholder="Phone No" formControlName="phoneno" > -->
+<!-- 			<mat-error *ngIf="phoneno.hasError('minlength')||phoneno.hasError('maxlength')"> -->
+<!-- 			Phone No should be of 10 digit</mat-error> -->
+<!-- 			<mat-error *ngIf="phoneno.hasError('required')">Phone No is <strong>required</strong></mat-error> -->
+		
+<!-- 		</mat-form-field> -->
+	
+<!-- 	</div> -->
+	
+	<div class="form-group">
+		
+		<mat-form-field>
+			  
+			  <input matInput [min]='oldestDate' [max]="currentDate" formControlName="dateOfBirth"  [matDatepicker]="picker" placeholder="Date Of Birth">
+			  
+			  
+			  <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+			  
+			  <mat-datepicker touchUi="true" #picker></mat-datepicker>
+			  
+			  <mat-hint align="start">Enter Date in mm/dd/yyyy Format</mat-hint>
+			  
+			  
+			  <mat-error *ngIf="dateOfBirth.hasError('matDatepickerMax')">You Can't Born in Future</mat-error>
+			  
+			  <mat-error *ngIf="dateOfBirth.hasError('matDatepickerMin')">You Are too Old</mat-error>
+			  
+			  <mat-error *ngIf="dateOfBirth.hasError('required')">Date of Birth is <strong>required</strong>
+			  And in (mm/dd/yyyy) format
+			  </mat-error>
+		
+		</mat-form-field>
+			
+	</div>
+	
+	
+	<div class="form-group">
+	
+		<mat-form-field>
+		
+				<mat-select placeholder="If You Have any PreExisting Condition" multiple="true" formControlName="medcondition">
+					
+					
+					<mat-option *ngFor="let condition of medConditions" [value]="condition">
+					
+					{{condition.diseaseName}}</mat-option>
+					
+				</mat-select>
+				
+				
+		</mat-form-field>
+	
+	
+	</div>
+	
+	
+	
+	
+	<div class="form-group">
+	
+		<button mat-raised-button color="primary" type="button" matStepperNext>Next</button>
+	
+	
+	</div>
+
+</form>
+  </mat-step>
+  <mat-step [stepControl]="addressForm">
+   
+   <ng-template matStepLabel>Contact Information</ng-template>
+	<address-form (changed)="addressSubmited($event)"></address-form>
+	
+	<button mat-raised-button color="accent" matStepperPrevious>Previous</button>
+	<button mat-raised-button color="primary" matStepperNext>Next</button>
+  </mat-step>
+  
+  <mat-step>
+  	<ng-template matStepLabel>Review And Submit</ng-template>
+  	
+  	<p class="text-capitalize"><strong>Name:</strong>  {{patient.name}}</p>
+  	<p><strong>Date Of Birth:</strong> {{patient.dateOfBirth|date:"mediumDate"}}</p>
+  	<p><strong>PreExisting Conditions:</strong></p>
+  	<p *ngFor="let disease of patient.diseases"> {{disease.diseaseName}}</p>
+  	<p><strong>Address:</strong></p>
+  	
+  	<p>{{patient.address.addressLineOne}}</p>
+  	<p>{{patient.address.addressLineTwo}}</p>
+  	<p>{{patient.address.city}}</p>
+  	<p>{{patient.address.phoneNo}}</p>
+  	
+  	<h4 *ngIf="result.result" class="text-capitalize text-success">{{result.message}}</h4>
+	<h4 *ngIf="result.error"  class="text-capitalize text-danger">{{result.message}}</h4>
+	
+	
+  	<button mat-raised-button color="accent" type="button" matStepperPrevious>Previous</button>
+  	<button mat-raised-button color="primary" type="button"  (click)="submit()">Submit</button>
+  </mat-step>
+</mat-vertical-stepper>
+
+
+</div>

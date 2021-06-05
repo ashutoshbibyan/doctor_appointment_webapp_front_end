@@ -1,0 +1,33 @@
+<h1 class="text-center">Add Disease </h1>
+<form [formGroup]="diseaseForm" (ngSubmit)="submit()">
+
+	<div class="form-group">
+		
+		 <mat-form-field>
+		 
+		 	<input matInput type="text" placeholder="Enter Disease Name" formControlName="diseaseName">
+		 	<mat-error *ngIf="diseaseName.hasError('required')">Disease Name is <strong>Required</strong></mat-error>
+		 </mat-form-field>
+	
+	</div>
+	
+	
+	<div class="form-group">
+		
+		 <mat-form-field>
+		 
+		 	<textarea matInput placeholder="Enter Disease Discription" formControlName="diseaseDiscription"></textarea>
+		 	<mat-error *ngIf="diseaseDiscription.hasError('required')">Disease Discription is 
+		 	<strong>Required</strong></mat-error>
+		 </mat-form-field>
+	
+	</div>
+	
+	<div class="form-group">
+	
+		<button  mat-raised-button color="primary" type="submit" >Submit</button>
+		
+	</div>
+
+
+</form>

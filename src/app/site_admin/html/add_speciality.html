@@ -1,0 +1,20 @@
+<h2 class="text-center">Add Speciality</h2>
+
+<form [formGroup]="specialityForm" (ngSubmit)="submit()">
+	
+	<div class="form-group">
+	
+		<mat-form-field>
+		
+			<input matInput type="text" placeholder="Enter Speciality" formControlName="speciality">
+		
+		</mat-form-field>
+	
+	</div>
+	
+	<div class="form-group">
+		<button mat-raised-button color="primary" type="text" >Submit </button>
+	
+	</div>
+
+</form>

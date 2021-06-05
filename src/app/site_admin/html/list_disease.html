@@ -1,0 +1,15 @@
+<h2 class="text-center">List of Disease</h2>
+
+<div class="flex-row">
+
+	<mat-card *ngFor="let disease of diseases">
+	
+		<mat-card-title>{{disease.diseaseName}}</mat-card-title>
+
+		<mat-card-actions>
+
+			<button mat-button color="accent" (click)="remove(disease.diseaseId)">Remove</button>
+		</mat-card-actions>
+	
+	</mat-card>
+</div>

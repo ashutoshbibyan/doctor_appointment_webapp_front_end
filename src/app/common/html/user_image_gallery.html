@@ -1,0 +1,20 @@
+<div  id="img-container">
+  
+		  <div class="imgBox" *ngFor="let image of images">
+		  
+		  				  		
+		<img [ngClass]="{'selected': image.fileId==selectedFile.fileId}" src={{image.path}} alt="image" 
+		width="150px" height="150px" (click)="imgSelected(image)">
+		   		
+		   		
+		  </div>
+		  
+		 <mat-paginator [length]="totalImages"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="[5, 10, 25, 100]"  (page)="getPage($event)">
+        </mat-paginator>
+  
+  </div>
+ 
+ 
+ 

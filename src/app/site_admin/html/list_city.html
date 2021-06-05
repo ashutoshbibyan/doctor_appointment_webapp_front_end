@@ -1,0 +1,16 @@
+<h2 class="text-center">list of the cities</h2>
+
+
+
+<div class="flex-row">
+		<mat-card *ngFor="let city of cities;let x = index">
+	
+				<mat-card-title>Name:{{city.cityName}}</mat-card-title>
+				<mat-card-subtitle>	PinCode:{{city.cityPincode}}</mat-card-subtitle>
+
+				<mat-card-actions>
+					<button mat-button color="accent" (click)="remove(x)">Remove</button>
+				</mat-card-actions>
+		</mat-card>
+</div>
+

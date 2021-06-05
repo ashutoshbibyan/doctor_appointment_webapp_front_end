@@ -1,0 +1,79 @@
+<mat-progress-bar *ngIf="progress" mode="indeterminate" color="accent"></mat-progress-bar>
+
+<h3 *ngIf="!showAppointment">There are no appointment today</h3>
+
+<div  *ngIf="showAppointment">
+
+
+
+<h3 class="text-center">List of Today's Appointments</h3>
+
+
+
+
+<div id="grid-container">
+
+
+<div   *ngFor="let appointment of appointments">
+
+
+
+	<mat-card>
+	
+		<div *ngIf="appointment.prescription.prescription!=null && appointment.prescription.prescription!=''" class="flex-row">
+	   <mat-card-subtitle>Prescribed</mat-card-subtitle>
+	   <mat-icon  color="warn" class="material-icons">done</mat-icon>
+		</div>
+		
+		<mat-card-header>
+		
+			<mat-card-title> <h5>Date:{{appointment.date*1000|date:'mediumDate'}}</h5> </mat-card-title>
+			
+		
+		</mat-card-header>
+		
+		
+		<mat-card-content>
+		 <h6>PatientId {{appointment.patientId}}</h6>
+		<h6>Patient Name:{{appointment.patientName}}</h6>
+	    <h6>Patient PhoneNo:{{appointment.patientPhoneNo}}</h6>
+		<h5>Time: {{commonService.getTimeLabel(appointment.hours.startAt)}} To 
+		      		   {{commonService.getTimeLabel(appointment.hours.closeAt)}}</h5>
+		</mat-card-content>
+		
+		<mat-card-actions>
+	
+		<button mat-button color="primary"  (click)="writePrescription(appointment.appointmentId)">
+		<mat-icon>add</mat-icon> Prescription</button>
+	
+		</mat-card-actions>
+	</mat-card>
+
+	
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<mat-paginator [length]="totalElements" [pageSize]="pageSize" (page)="nextPage($event)">
+
+
+
+</mat-paginator>
+
+
+
+
+
+</div>
+
+

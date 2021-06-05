@@ -1,0 +1,10 @@
+#grid-container{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:space-around;
+}
+
+

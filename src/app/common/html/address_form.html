@@ -1,0 +1,71 @@
+<form [formGroup]="addressForm">
+
+	<div class="form-group">
+		<mat-form-field>
+			<input matInput type="text" (change)="change()" placeholder="Address Line One " formControlName="addressLineOne">
+		
+			<mat-error *ngIf="addressLineOne.hasError('required')">Address Line is <strong>required</strong></mat-error>
+		</mat-form-field>
+	
+	</div>
+	
+	
+	
+	<div class="form-group">
+		<mat-form-field>
+			<input matInput type="text" (change)="change()" placeholder="Address Line two " formControlName="addressLineTwo">
+			<mat-hint>Optional</mat-hint>
+		</mat-form-field>
+	
+	</div>
+	
+	
+	
+			
+			<div class="form-group">
+		<mat-form-field>
+			<mat-select placeholder="Select State" formControlName="state" (change)="getAllCities()">
+			
+					<mat-option *ngFor="let state of states" [value]="state.stateId">{{state.stateName}}</mat-option>
+			<mat-error *ngIf="state.hasError('required')"> Plesase Select A State</mat-error>
+			</mat-select>
+		
+		</mat-form-field>
+	
+	</div>
+	
+
+	
+	
+	<div class="form-group">
+		<mat-form-field>
+		
+			<mat-select placeholder="Select City" formControlName="city" (change)="change()">
+			
+				<mat-option *ngFor="let city of cities" [value]="city.cityName">{{city.cityName}}</mat-option>
+			</mat-select>
+			
+			<mat-error *ngIf="city.hasError('required')">Please Select A City</mat-error>
+		</mat-form-field>
+	
+	</div>
+	
+	<div class="form-group">
+		
+		<mat-form-field>
+				
+				<input type="text" matInput (change)="change()" placeholder="Enter Mobile No " formControlName="phoneNo">
+			<mat-error *ngIf="phoneNo.hasError('required')"> Please Enter The Mobile No</mat-error>
+		</mat-form-field>
+		
+	</div>
+	
+	
+<!-- 	<div class="form-group"> -->
+		
+<!-- 		<button mat-raised-button color="primary" type="button" (click)="submit()">Submit</button> -->
+	
+<!-- 	</div> -->
+
+
+</form>

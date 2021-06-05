@@ -1,0 +1,29 @@
+#upload-btn{
+	position:absolute;
+	height: 150px;
+	width:150px;
+	opacity:0;
+}
+
+
+#up-btn-box{
+	margin:20px;
+	position:relative;
+	border: dashed thin blue;
+	width:200px;
+	height:200px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	
+}
+
+
+#up-btn-box label{
+	position:absolute;
+	align-self:center;
+}
+
+img{
+	margin:20px;
+}

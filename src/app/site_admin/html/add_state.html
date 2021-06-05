@@ -1,0 +1,17 @@
+<h1 class="text-center">Add State</h1>
+<form [formGroup]="stateForm" (ngSubmit)="submit()">
+
+	
+	<div class="form-group">
+		<mat-form-field>
+					<input matInput type="text" formControlName="stateName" placeholder="Enter State Name"> 
+	<mat-error *ngIf="stateName.hasError('required')">State Name is <strong>Required</strong></mat-error>
+		</mat-form-field>
+	</div>
+
+	<div class="form-group">
+	
+		<button mat-raised-button color="primary" type="submit">Submit</button>
+	</div>
+
+</form>

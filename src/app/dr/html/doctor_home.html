@@ -1,0 +1,126 @@
+
+<mat-toolbar color="primary">
+
+<button mat-icon-button (click)="sidenav.open()">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<button mat-button routerLink="/dr/home"><span>Edr</span>
+</button>
+
+
+<button mat-button (click)="signOut()">SignOut</button>
+
+
+</mat-toolbar>
+
+
+<mat-sidenav-container >
+
+  <mat-sidenav #sidenav>
+  
+  	<mat-nav-list>
+  	
+  		<mat-list-item>
+  		<a class="nav-link" routerLink="dr/panel">Information Panel</a>
+  		
+  		</mat-list-item>
+  		
+  		<mat-divider></mat-divider>
+  	
+  		<h3 mat-subheader>Appointment</h3>
+  		
+  		<mat-list-item>
+  		 <a class="list-group-item"  routerLink="dr/appointment">Appointment Fee</a>
+  		</mat-list-item>
+  		
+  		
+  		<mat-list-item>
+  		 <a class="list-group-item" routerLink="dr/add/hours">Add Hours</a>
+  		
+  		</mat-list-item>
+  		
+  		<mat-list-item>
+  		<a class="list-group-item"  routerLink="dr/make/appointment" >Make An Appointment</a>
+  		</mat-list-item>
+  		
+  		
+  		<mat-list-item>
+  		 <a class="list-group-item"  routerLink="dr/show/appointment">Show All Appointment</a>
+  		</mat-list-item>
+  		
+  		<mat-divider></mat-divider>
+  		
+  		<h3 mat-subheader>Holiday</h3>
+  		
+  		<mat-list-item>
+  		
+  		<a class="list-group-item" routerLink="dr/holiday">Add Holiday</a>
+  		</mat-list-item>
+  		
+  		<mat-list-item>
+  		
+  		<a class="list-group-item" routerLink="dr/show/holiday" >Show All Holiday</a>
+  		</mat-list-item>
+  		
+  		<mat-divider></mat-divider>
+  		
+  		<h3 mat-subheader>Profile</h3>
+  		
+  		<mat-list-item>
+  		<a routerLink="profile/edit">Edit Profile </a>
+  		</mat-list-item>
+  	
+  	</mat-nav-list>
+  
+  
+<!--      <div class="col-md-4"> -->
+
+<!-- 	<div class="list-group no-style"> -->
+<!-- 		    <div> -->
+<!-- 		  	<a class="list-group-item" data-toggle="collapse" href="#appointmentMenu"> -->
+<!-- 		  	Appointment <i class="caret"></i></a> -->
+<!-- 		    <div class="collapse" id="appointmentMenu"> -->
+<!-- 		    	 <a class="list-group-item"  routerLink="dr/appointment">Appointment Setup</a> -->
+<!-- 		    	  <a class="list-group-item" routerLink="dr/add/hours">Add Hours</a> -->
+<!-- 		    	 <a class="list-group-item"  routerLink="dr/make/appointment" >Make An Appointment</a> -->
+<!-- 		    	 <a class="list-group-item"  routerLink="dr/show/appointment">Show All Appointment</a> -->
+<!-- 		    </div> -->
+		    
+<!-- 		  </div> -->
+		  
+<!-- 		  <div> -->
+<!-- 		    <a class="list-group-item" data-toggle="collapse" href="#holidayMenu"> -->
+<!-- 		    Holiday <i class="caret"></i></a> -->
+		    
+<!-- 		    <div class="collapse" id="holidayMenu"> -->
+<!-- 		    	<a class="list-group-item" routerLink="dr/holiday">Add Holiday</a> -->
+<!-- 		    	<a class="list-group-item" routerLink="dr/show/holiday" >Show All Holiday</a> -->
+<!-- 		    </div> -->
+<!-- 		  </div> -->
+		  
+<!-- 		  <div class="list-group-item"> -->
+<!-- 		    <a class="nav-link" routerLink="dr/panel">Information Panel</a> -->
+		   
+<!-- 		  </div> -->
+		  
+		  
+		  
+<!-- 	</div> -->
+
+<!-- </div> -->
+  </mat-sidenav>
+
+
+  <!-- primary content -->
+  
+  
+  
+		
+	<router-outlet class="my-content"></router-outlet>
+
+</mat-sidenav-container>
+
+
+
+

@@ -1,0 +1,34 @@
+
+<h2> Write Prescription </h2>
+
+
+
+
+<form [formGroup]="prescriptionForm">
+
+<h4>PatientName: {{appointment.patientName}}</h4>
+
+
+
+<mat-form-field>
+
+<textarea matInput placeholder="Enter The Symptoms" matTextareaAutosize matAutosizeMinRows="6"
+            matAutosizeMaxRows="2" formControlName="symptoms">
+    </textarea>
+
+</mat-form-field>
+
+
+<mat-form-field>
+
+	<textarea matInput placeholder="Enter The Prescription" matTextareaAutosize matAutosizeMinRows="6"
+            matAutosizeMaxRows="5" formControlName="prescription">
+    </textarea>
+
+</mat-form-field>
+
+	
+	<button mat-raised-button color="primary" (click)="save()">Save</button>
+	<button mat-raised-button color="accent"  mat-dialog-close	 >Close</button>
+	
+</form>

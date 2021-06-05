@@ -1,0 +1,137 @@
+<h3 class="text-center">Make An Appointment</h3>
+
+
+
+
+<mat-tab-group (selectedTabChange)="tabChanged($event)">
+  <mat-tab  label="Using Patient Id">
+   		
+   		<form [formGroup]="appointmentForm"  (ngSubmit)="submit()">
+
+				<div class="form-group">
+				
+					<mat-form-field>
+						<input matInput (change)="patientIdExist()" type="text" formControlName="patientId"  placeholder="Enter Patient Id">
+		<mat-error *ngIf="patientId.hasError('required')" class="text-capitalize">Patient Id is <strong>Required</strong></mat-error>
+		
+		<mat-error *ngIf="patientId.hasError('noPatient')">No Patient Exist With This Id</mat-error>
+		
+	   <mat-error *ngIf="patientId.hasError('email')"  class="text-capitalize">Enter A Valid Email </mat-error>
+	   
+					</mat-form-field>
+				</div>
+				
+				<div class="form-group">
+				
+				
+					<mat-form-field>
+	       <input matInput (dateChange)="dateSelected($event)" formControlName="date" [min]="today"  [matDatepickerFilter]="workingDayFilter" [matDatepicker]="picker" placeholder="Choose a date">
+					  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					  <mat-datepicker touchUi="true" #picker></mat-datepicker>
+					  
+					   <mat-error  class="text-capitalize" *ngIf="date.hasError('matDatepickerFilter')" class="text-capitalize" >
+					 Doctor is not available this day</mat-error>
+					 <mat-error  class="text-capitalize" *ngIf="date.hasError('required')">Date is <strong>Required</strong></mat-error>
+					 
+					</mat-form-field>
+					
+					 
+				</div>
+				
+				<div class="form-group">
+				
+					<mat-form-field>
+						<mat-select formControlName="timeSlot" placeholder="Choose A TimeSlot">
+							<mat-option *ngFor="let hour of hours"  [value]="hour">
+	       						{{commonService.getTimeLabel(hour.startAt)}}
+	       						to
+	       						{{commonService.getTimeLabel(hour.closeAt)}}
+							</mat-option>
+							
+						</mat-select>
+						<mat-error  class="text-capitalize" *ngIf="timeSlot.hasError('required')">Select A TimeSlot</mat-error>
+					</mat-form-field>
+				
+				</div>
+				
+				
+				<div class="form-group">
+				
+					<button mat-raised-button color="primary" type="submit">Submit</button>
+				</div>
+	
+	
+
+
+        </form>
+   		
+  </mat-tab>
+  <mat-tab label="Without Patient Id">
+  
+  
+  <form [formGroup]="appointmentWithoutPatientId" (ngSubmit)="submitWithoutId()">
+  	
+  		<div class="form-group">
+  		
+  			<mat-form-field>
+  				<input type="text" matInput placeholder="Patient Name" formControlName="patientName">
+  				
+  	<mat-error  class="text-capitalize" *ngIf="patientName.hasError('required')">Patient Name is <strong>Required</strong></mat-error>
+  				
+  			</mat-form-field>
+  			
+  			
+  		</div>
+  		
+  		<div class="form-group">
+  			<mat-form-field>
+  			
+  				<input type="text" matInput placeholder="Patient Phone No" formControlName="patientPhoneNo">
+  <mat-error  class="text-capitalize" *ngIf="patientPhoneNo.hasError('required')">Phone no is <strong>Required</strong></mat-error>
+  <mat-error class="text-capitalize" *ngIf="patientPhoneNo.hasError('minlength')">Phone No should be of 10 digit</mat-error>			
+  			</mat-form-field>
+  		
+  		</div>
+  		
+  		
+  		<div class="form-group">
+				
+					<mat-form-field>
+	                  <input (dateChange)="dateSelected($event)" matInput [min]="today" [matDatepickerFilter]="workingDayFilter" formControlName="appointmentDate"   [matDatepicker]="pickertwo" placeholder="Choose a date">
+					  <mat-datepicker-toggle matSuffix [for]="pickertwo"></mat-datepicker-toggle>
+					  <mat-datepicker touchUi="true" #pickertwo></mat-datepicker>
+					 
+					  <mat-error  class="text-capitalize" *ngIf="date.hasError('matDatepickerFilter')" class="text-capitalize" >
+					 Doctor is not available this day</mat-error>
+					</mat-form-field>
+					
+					 
+	     </div>
+	     
+	     <div class="form-group">
+				
+					<mat-form-field>
+						<mat-select  placeholder="Choose A TimeSlot" formControlName="appointmentTimeSlot">
+							<mat-option *ngFor="let hour of hours"  [value]="hour">
+	       						{{commonService.getTimeLabel(hour.startAt)}}
+	       						to
+	       						{{commonService.getTimeLabel(hour.closeAt)}}
+							</mat-option>
+							
+						</mat-select>
+			 <mat-error  class="text-capitalize" *ngIf="appointmentTimeSlot.hasError('required')">Select A TimeSlot</mat-error>
+					</mat-form-field>
+				
+		 </div>
+		 
+		 <div class="form-group">
+		 		
+		 		<button mat-raised-button color="primary" type="submit">Submit</button>
+		 
+		 </div>
+				
+  
+  </form>
+  
+  </mat-tab>
+</mat-tab-group>

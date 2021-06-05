@@ -1,0 +1,32 @@
+<site-main-header></site-main-header> 
+<h3 class="text-center">Please Enter Your Otp</h3>
+
+<form [formGroup]="mobileVarificationForm" (ngSubmit)="submit()">
+
+<mat-form-field>
+
+    <input matInput placeholder="Mobile No" formControlName="mobileNo">
+    <span matPrefix>+91</span>
+    
+</mat-form-field>
+
+
+<mat-form-field>
+
+    <input matInput placeholder="Enter Otp" formControlName="otp">
+</mat-form-field>
+
+
+<div class="flex-row">
+
+<button mat-button color="primary" type="submit">Submit</button>
+
+<button mat-button type="button" color="accent" disabled="{{deactivated}}"
+ (click)="sendOtpAgain()">{{countDown | async}}</button>
+
+ <button mat-button type="button" color="accent" disabled="{{deactivatedVoiceOtp}}"
+ (click)="sendOtpAgainVoice()">{{countDownVoice | async}}</button>
+
+</div>
+
+</form>

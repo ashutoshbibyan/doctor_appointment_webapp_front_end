@@ -1,0 +1,65 @@
+label{
+	margin-right: 20px;
+}
+
+label,mat-slide-toggle{border-top: .84375em solid transparent; padding: .4375em 0;}
+
+.time-list{
+	display:flex;
+	align-items:center;
+	margin-left: 20px;
+	
+	}
+
+.add-hour-form{
+	display:flex;
+	flex-direction:column;
+	margin-left: 10px;
+}
+
+.mat-form-field{
+	width: 100%;
+}
+
+/* If screen size is smaller than 321px*/
+
+@media only screen and (max-width:321px){
+	
+	.time-list{
+		flex-direction:column;
+	}
+	
+}
+
+
+/* if screen is greater or equal to 1024px */
+@media only screen and (min-width: 1024px) {
+
+form{
+	min-width: fit-content;
+}
+     
+     .add-hour-form{
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	justify-content:start;
+}
+
+
+.mat-form-field{
+	width:80%;
+}
+
+.day-container{
+	display:flex;
+	flex-direction:row;
+	margin-top: 30px;
+	align-items:baseline;
+	justify-content:space-between;
+}
+     
+    
+     
+     
+}

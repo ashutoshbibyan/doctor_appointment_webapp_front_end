@@ -1,0 +1,154 @@
+
+<div id="container">
+
+<div id="left-content">
+
+<div id="img-container">
+
+	<img src={{doctor.profileImage.path}} alt="profile image" height=150px width=150px>
+	
+</div>
+	
+	<div class="flex-row">
+	
+	<h4>AppointmentFee:</h4>
+			<div>
+			     <p>{{doctor.appointmentFee}}</p>
+			</div>
+	</div>
+	
+	<div class="flex-row">
+	
+	<h4>PhoneNo:</h4>
+			<div>
+			     <p>{{doctor.phoneno}}</p>
+			</div>
+	</div>
+	
+	<div class="flex-row">
+	
+		
+	<h4>Address:</h4>
+	<div>
+	
+		<p>{{doctor.addrLineOne}}  {{doctor.city}}</p>
+	
+	</div>
+	
+	
+	</div>
+	
+	
+	
+
+</div>
+
+
+
+
+<div id="right-content">
+
+
+	
+		
+		
+	
+	
+	<h3>Name : {{doctor.name}}</h3>
+	
+	<h4>About:</h4>
+	<p>{{doctor.about}}</p>
+	
+	<div class="flex-row">
+	
+			<h4>Qualification</h4>
+	
+	<ul>
+	
+	
+			<div *ngFor="let degree of doctor.degrees">
+				<li><h5>{{degree.degreeName}} </h5></li>
+			</div>
+			
+			
+    </ul>
+	
+	
+	
+	</div>
+    
+    
+    
+    <div class="flex-row">
+    
+    
+    <h4>Speciality:</h4>
+	
+	<ul>
+	
+	<div *ngFor="let speciality of doctor.specialities">
+	
+		<li><h5>{{speciality.specialityName}} </h5></li>
+	
+	</div>
+	
+	</ul>
+    
+    
+    
+    </div>
+    
+    
+	
+	<div id="workingday-container">
+	
+	<h4>Working Days:</h4>
+	<div *ngFor="let workingday of doctor.workingDays">
+	
+		
+		
+		<mat-list>
+		
+        <div class="workingday">
+		
+		<mat-list-item><h5>{{workingday.dayName}}</h5></mat-list-item>
+		
+		
+		
+		<div class="time" >
+					<div *ngFor="let hour of workingday.hours" >
+					
+					
+								<p>
+								{{commonService.getTimeLabel(hour.startAt)}}
+								To		
+								{{commonService.getTimeLabel(hour.closeAt)}}
+								</p>
+								
+								
+					</div>
+					
+	    </div>
+		
+		</div>
+		
+		
+		
+		
+		</mat-list>
+		
+		
+		<br>
+		
+		
+	</div>
+	
+	
+	</div>
+	
+	
+		
+
+</div>
+
+</div>

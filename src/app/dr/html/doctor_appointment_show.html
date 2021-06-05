@@ -1,0 +1,78 @@
+<mat-progress-bar *ngIf="progress" mode="indeterminate" color="accent"></mat-progress-bar>
+
+<h3 class="text-center">Choose a Time interval</h3>
+<form [formGroup]="dateForm" (ngSubmit)="submit()">
+
+	<div class="form-group">
+		<mat-form-field>
+	       <input matInput formControlName="from"  [matDatepicker]="pickerfrom" placeholder="From">
+					  <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
+					  <mat-datepicker touchUi="true" #pickerfrom></mat-datepicker>
+					  
+					  
+	   </mat-form-field>
+	</div>
+	
+	<div class="form-group">
+		<mat-form-field>
+	       <input matInput formControlName="to" [matDatepicker]="pickerto" placeholder="To">
+					  <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+					  <mat-datepicker touchUi="true" #pickerto></mat-datepicker>
+					  
+					  
+	   </mat-form-field>
+	</div>
+	
+	
+	<div class="form-group">
+	
+		<button mat-raised-button color="primary" type="submit" >Show</button>
+	</div>
+
+
+</form>
+
+
+
+<div id="grid-container">
+
+<div  *ngFor="let appointment of appointments">
+
+
+<mat-card>
+
+	<mat-card-header>
+	
+		<mat-card-title> <h5>Date:{{appointment.date*1000|date:'mediumDate'}}</h5></mat-card-title>
+		
+	</mat-card-header>
+
+	<mat-card-content>
+	
+			 <h6>PatientId :{{appointment.patientId}}</h6>
+	         <h6>Patient Name:{{appointment.patientName}}</h6>
+	         <h6>Patient PhoneNo:{{appointment.patientPhoneNo}}</h6>
+	         <h5>Time- {{commonService.getTimeLabel(appointment.hours.startAt)}} To 
+      		   {{commonService.getTimeLabel(appointment.hours.closeAt)}}
+      		   
+      		</h5>
+	
+	</mat-card-content>
+	
+	
+
+</mat-card>
+
+
+	
+	
+	
+</div>
+
+</div>
+
+<mat-paginator [length]="totalElements" [pageSize]="pageSize" (page)="nextPage($event)">
+
+
+
+</mat-paginator>

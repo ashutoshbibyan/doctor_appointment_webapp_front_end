@@ -1,0 +1,51 @@
+<h3 class="text-center">Choose A Time Interval</h3>
+<form [formGroup]="dateForm" (ngSubmit)="submit()">
+
+	<div class="form-group">
+		<mat-form-field>
+	       <input matInput formControlName="from"  [matDatepicker]="pickerfrom" placeholder="From">
+					  <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
+					  <mat-datepicker #pickerfrom></mat-datepicker>
+					  
+					  
+	   </mat-form-field>
+	</div>
+	
+	<div class="form-group">
+		<mat-form-field>
+	       <input matInput formControlName="to" [matDatepicker]="pickerto" placeholder="To">
+					  <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+					  <mat-datepicker #pickerto></mat-datepicker>
+					  
+					  
+	   </mat-form-field>
+	</div>
+	
+	
+	<div class="form-group">
+	
+		<button mat-raised-button color="primary" type="submit" >Show</button>
+	</div>
+
+
+</form>
+
+
+
+
+<div class="content-center">
+
+
+	
+<h4 class="text-center">List Of All Holidays</h4>
+
+<mat-list *ngFor="let date of holidayList">
+
+
+	<mat-list-item>{{date*1000|date:"longDate"}}<button mat-button (click)="deleteHoliday(date)"> <i class="material-icons">delete</i></button></mat-list-item>
+
+</mat-list>
+	
+
+
+</div>

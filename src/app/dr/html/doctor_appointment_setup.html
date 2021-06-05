@@ -1,0 +1,30 @@
+
+
+
+<h3 class="text-center">Appointment Fee </h3>
+
+<form (ngSubmit)="submit()" [formGroup]="appointmentForm">
+
+	
+
+	<div class="form-group">
+	
+		<mat-form-field>
+			<input matInput   type="text" formControlName="feeAmount" placeholder="Enter Fee Amount" >
+			<p matSuffix>Rs</p>
+		</mat-form-field>
+	
+	</div>
+	
+<!-- 	<div class="form-group"> -->
+<!-- 		<mat-form-field> -->
+<!-- 		<input matInput  type="text" formControlName="maxAppointments" placeholder="No Of Max Appointment In A Day"> -->
+<!-- 		</mat-form-field> -->
+	
+<!-- 	</div> -->
+	
+	<button mat-raised-button color="primary" type="submit" >Submit</button>
+	
+
+
+</form>

@@ -1,0 +1,126 @@
+<div class="content-center">
+
+	
+	<h4 class="text-center">Make An Appointment With Dr In Your City</h4>
+
+
+<mat-horizontal-stepper>
+ 
+ 	<mat-step>
+ 		<ng-template matStepLabel>Choose Doctor And Time</ng-template>
+ 		
+ 		
+<form [formGroup]="appointmentForm" (ngSubmit)="submit()">
+
+	<div class="form-group">
+	
+		<mat-form-field >
+		
+					<mat-select  #docSelect placeholder="Choose a Doctor" formControlName="selectedDoc" (change)="drSelected()">
+							<div  *ngFor="let dr of doctors;let i = index" [matTooltip]="getDocDetail(i)" matTooltipPosition="right">
+							
+							<mat-option  [value]="dr">
+							
+							
+							{{dr.name}}
+						
+					
+						     </mat-option>
+						
+						
+						</div>
+					
+					</mat-select>
+					<mat-hint>List Of Doctor In Your city</mat-hint>
+					<mat-error *ngIf="selectedDoc.hasError('required')">Please Select A Dr</mat-error>
+				
+		</mat-form-field>
+		
+		
+	</div>
+	
+	<div class="form-group">
+	
+		<mat-form-field>
+		
+			<input matInput  (dateChange)="dateSelected($event)" [min]='currentDate'  [matDatepickerFilter]="holidayFilter"  formControlName="appointmentDate"  [matDatepicker]="picker" placeholder="Select A day">
+			  
+			  
+			  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+			  
+			  <mat-datepicker touchUi='true' #picker></mat-datepicker>
+		
+			<mat-hint> Enter Date in (MM/DD/YYYY)</mat-hint>
+	<mat-error *ngIf="appointmentDate.hasError('required')">Please Select A Date</mat-error>
+	<mat-error *ngIf="appointmentDate.hasError('matDatepickerFilter')"> This day is a holiday </mat-error>
+		</mat-form-field>
+   
+	
+	</div>
+
+
+	<div class="form-group">
+	
+		<mat-form-field>
+		
+			<mat-select placeholder="Choose a Time"  formControlName="appointmentTime" (change)="getAppointmentLeft()">
+			
+			
+			 <div *ngFor="let hour of hours" >
+					
+					
+					
+					<mat-option  [value]="hour" >
+						{{commonService.getTimeLabel(hour.startAt)}} To 
+						{{commonService.getTimeLabel(hour.closeAt)}}
+					</mat-option>
+					
+					
+			</div>		
+			</mat-select>
+			
+			<mat-error *ngIf="appointmentTime.hasError('required')"> Please Select A Time</mat-error>
+		
+		</mat-form-field>
+	</div>	
+	
+	
+	<div class="form-group">
+ 			<button mat-raised-button matStepperNext color="primary">Next</button>
+ 		</div>
+
+</form>
+ 		
+ 	
+ 		
+ 	</mat-step>
+ 	
+ 	<mat-step>
+		 <ng-template matStepLabel>Pay </ng-template>
+		 
+		 <button mat-raised-button color="primary" id="rzp-button1" >Pay Now </button>
+
+
+ 	
+ 		<div class="form-group">
+ 			<button mat-raised-button matStepperPrevious color="accent">Previous</button>
+ 			<button mat-raised-button matStepperNext color="primary">Next</button>
+ 		</div>
+ 	</mat-step>
+ 	
+ 	<mat-step>
+ 		<ng-template matStepLabel> Done </ng-template>
+ 	
+ 		<div class="form-group">
+ 		
+ 			<button mat-raised-button matStepperPrevious color="accent">Previous</button>
+ 			<button mat-raised-button matStepperNext color="primary">Next</button>
+ 		</div>
+ 	</mat-step>
+ 
+ </mat-horizontal-stepper>
+      
+	
+
+
+</div>

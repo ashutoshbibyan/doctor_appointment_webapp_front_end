@@ -1,0 +1,49 @@
+
+
+<mat-dialog-content>	
+	
+
+<mat-tab-group [(selectedIndex)]="tabIndex" (focusChange)="tabChanged($event)">
+
+  <mat-tab  label="Upload">
+  
+  <user-img-upload (uploaded)="uploaded($event)"></user-img-upload>
+  
+  
+  
+  </mat-tab>
+  
+  
+  
+  <mat-tab    label="Gallery">
+  
+ 
+ <user-gallery [(reload)]="reloadGallery"  (selected)="fileSelected($event)"></user-gallery>
+  
+  
+  
+  
+  </mat-tab>
+  
+ 
+  
+</mat-tab-group>
+
+</mat-dialog-content>
+
+
+
+ <mat-dialog-actions>
+ 
+  <button mat-button mat-dialog-close>Cancel</button>
+ 
+  <button mat-raised-button color="primary" 
+  [disabled]="btnDisable" (click)="submit()" [mat-dialog-close]="true">Submit</button>
+  
+  
+</mat-dialog-actions>
+  
+
+
+
+

@@ -1,0 +1,46 @@
+<h3 class="text-center">Add Holiday </h3>
+<form [formGroup]="holidayForm" (ngSubmit)="submit()">
+
+	<h4 *ngIf="result.result" class="text-capitalize text-success">{{result.message}}</h4>
+	<h4 *ngIf="result.error" class="text-capitalize text-danger">{{result.message}}</h4>
+
+	<div class="form-group">
+	
+		<mat-form-field>
+		  <input matInput [min]="currentDate" [matDatepicker]="picker" placeholder="Choose a date" formControlName="holidayDate">
+		  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		  <mat-datepicker #picker></mat-datepicker>
+		</mat-form-field>
+		<mat-error *ngIf="holidayDate.hasError('matDatepickerMin')">You Can't Add Holiday In Past</mat-error>
+	</div>
+	
+	
+	
+	<div class="form-group">
+		<button mat-raised-button color="accent" (click)="addHoliday()" type="button">Add Date</button>
+	</div>
+	
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Delete</th>
+			</tr>
+		
+		</thead>
+		<tbody>
+			<tr *ngFor="let date of holidayDates;let i=index">
+				<td>{{date.getMonth()+1}}/{{date.getDate()}}/{{date.getFullYear()}}</td>
+				<td><button mat-raised-button color="warn" type="button" (click)="deleteDate(i)">
+				<i class="material-icons">delete</i></button></td>
+			</tr>
+		
+		
+		</tbody>
+	</table>
+	
+	<button mat-raised-button color="primary" type="submit">Save</button>
+
+</form>
+

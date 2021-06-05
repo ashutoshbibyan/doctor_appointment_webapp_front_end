@@ -1,0 +1,16 @@
+<h2 class="text-center"> List Of Degree</h2>
+
+<div class="flex-row" >
+
+	<mat-card *ngFor="let degree of degrees">
+	     
+	     
+		<mat-card-title>{{degree.degreeName}}</mat-card-title>
+		
+		<mat-card-actions>
+
+			<button mat-button color="accent" (click)="remove(degree.degreeId)">Remove</button>
+		</mat-card-actions>
+		 
+    </mat-card>
+</div>
