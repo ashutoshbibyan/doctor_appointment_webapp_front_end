@@ -2,8 +2,9 @@
 
 	<button mat-button (click)="sidenav.open()" ><mat-icon>menu</mat-icon></button>
 
-	<button mat-button >Home</button>
+	<button mat-button routerLink="/">Go to Home Page</button>
 
+	
 
 </mat-toolbar>
 
@@ -68,6 +69,8 @@
 
 
 	</mat-sidenav>
+
+	<h2>Choose options from the sidenav</h2>
 	
 	<router-outlet class="my-content"></router-outlet>
 

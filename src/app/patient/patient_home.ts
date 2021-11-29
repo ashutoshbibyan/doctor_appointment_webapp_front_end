@@ -21,8 +21,11 @@ export class PatientHome {
     }
 
 
-    logOut(){
+    
 
+    logOut(){
+        
+    /**
         this.userService.userLogout().subscribe((data)=>{
             if(data!=undefined){
                 if(data.status==200){
@@ -32,7 +35,11 @@ export class PatientHome {
             }
         });
 
+    */
+        this.router.navigateByUrl("/");
+
     }
 
+   
 
 }

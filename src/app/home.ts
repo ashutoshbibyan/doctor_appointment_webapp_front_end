@@ -26,9 +26,10 @@ export class Home {
 
     ngOnInit(){
 
-        
 
-        
+        // this is the backend call currently commented
+
+      /*  
 
         this.userService.getCurrentUser().subscribe((data)=>{
 
@@ -50,6 +51,8 @@ export class Home {
             }
 
         });
+
+    */
     
 
     }

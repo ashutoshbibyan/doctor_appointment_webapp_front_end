@@ -23,6 +23,7 @@ export class DoctorHome {
 
     ngOnInit(){
 
+        /**
        
         this.doctorService.getDoctorPublicInfo().subscribe((data)=>{
            
@@ -32,6 +33,7 @@ export class DoctorHome {
                
         });
 
+        */
     }
 
   
@@ -39,6 +41,8 @@ export class DoctorHome {
 
 
     signOut(){
+
+        /**
         
         this.userService.userLogout().subscribe((data)=>{
             if(data!=undefined){
@@ -48,6 +52,9 @@ export class DoctorHome {
                 
             }
         });
+
+        */
+       this.router.navigateByUrl("/");
 
     }
 
